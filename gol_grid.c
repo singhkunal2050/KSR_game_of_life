@@ -3,8 +3,8 @@
 #include<time.h>
 #include<stdio.h>
 
-#define rows 40				// ideal 50	
-#define cols 40
+#define rows 200				// ideal 50	
+#define cols 200
 
 int r,g,b;
 
@@ -99,7 +99,7 @@ void display()
 
 void init(){
 	glClearColor(0.0,0.0,0.0,0.0);
-	glPointSize(10);					//ideal 8
+	glPointSize(3);					//ideal 8
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(0.0,rows,0.0,cols);
@@ -154,7 +154,7 @@ void timer()
     play();
 	//display();
     showGrid();
-    glutTimerFunc(10, timer, 0);
+    glutTimerFunc(1, timer, 0);
 }
 
 int main(int argc, char **argv)

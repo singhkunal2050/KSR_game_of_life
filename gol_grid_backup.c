@@ -111,10 +111,10 @@ void init(){
 void showGrid(){
 
 
-	for (i = 1; i < rows; i++)
+	for (i = 1; i < rows-1; i++)
 	{
 		srand(time(0));                         // psuedo random base for random generation init by curr time 
-	   for (j = 1; j < cols; j++)
+	   for (j = 1; j < cols-1; j++)
 		{	
 		    //r=rand()%255;		    g=rand()%255;		    b=rand()%255;
 		    //glColor3f(1,.5,0);
