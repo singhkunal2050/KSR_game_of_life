@@ -21,11 +21,14 @@ struct cell curr[rows][cols];
 struct cell next[rows][cols];
 
 void initGOL()
-{
-	srand(time(0));                         // psuedo random base for random generation init by curr time 
+{	
+	srand(time(0));                         	// psuedo random base for random generation init by curr time 
 	for(i=0;i<rows;i++)
 		for(j=0;j<cols;j++)
-			next[i][j].state=curr[i][j].state=rand()%2;									// gets the random values form 0 | 1	
+			if(j%2==0)
+				next[i][j].state=curr[i][j].state=rand()%2;									// gets the random values form 0 | 1 for even postn
+			else
+				next[i][j].state=curr[i][j].state=0;									// 0 at every odd postn
 }
 
 void play()
@@ -103,7 +106,7 @@ void showGrid(){
 			if(curr[i][j].state==1)					//living cell
 			{
 			    glColor3ub(r,g,b);						// random colors option
-				//glColor3f(1,1,1);						// white cells
+				glColor3f(1,1,1);						// white cells
 				glVertex2f(i,j);
 			}		
 			else if(curr[i][j].state==0)					//living cell
