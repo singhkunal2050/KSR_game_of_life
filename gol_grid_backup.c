@@ -1,10 +1,13 @@
+// using timer functions rest are swapped using idlefunction
+
 #include <GL/gl.h>
 #include <GL/glut.h>
 #include<time.h>
 #include<stdio.h>
 
-#define rows 20				// ideal 50	
-#define cols 20
+#define rows 150				// ideal 50	
+#define cols 150
+#define psize 3
 
 int r,g,b;
 
@@ -99,7 +102,7 @@ void display()
 
 void init(){
 	glClearColor(0.0,0.0,0.0,0.0);
-	glPointSize(22);					//ideal 8
+	glPointSize(psize);					//ideal 8
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(0.0,rows,0.0,cols);
@@ -149,12 +152,12 @@ void myDisplay(){
 
 }
 
-void timer()
+void timerDisplay()
 {
     play();
 	//display();
     showGrid();
-    glutTimerFunc(10, timer, 0);
+    glutTimerFunc(100, timerDisplay, 0);
 }
 
 int main(int argc, char **argv)
@@ -168,7 +171,7 @@ int main(int argc, char **argv)
     //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glutDisplayFunc(myDisplay);
 	//glutIdleFunc(myDisplay);
-	timer();
+	timerDisplay();
 	init();
 	glutMainLoop();
 
