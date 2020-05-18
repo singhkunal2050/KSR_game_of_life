@@ -7,7 +7,6 @@
 #define cols 200
 
 int r,g,b;
-
 //for gol
 
 struct cell
